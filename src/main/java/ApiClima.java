@@ -52,10 +52,8 @@ public class ApiClima {
             double temperatureFahrenheit = currentConditions.path("temp").asDouble();
             String conditions = currentConditions.path("conditions").asText();
 
-            // Converter temperatura de Fahrenheit para Celsius
             double temperaturaCelsius = (temperatureFahrenheit - 32) * 5 / 9;
 
-            // Tradução das condições climáticas
             Map<String, String> conditionTranslations = createConditionTranslations();
             String condicoesemPortugues = conditionTranslations.getOrDefault(conditions, conditions);
 
@@ -73,11 +71,8 @@ public class ApiClima {
         translations.put("Partially cloudy", "Parcialmente nublado");
         translations.put("Overcast", "Nublado");
         translations.put("Rain", "Chuva");
-        translations.put("Snow", "Neve");
         translations.put("Thunderstorm", "Tempestade");
-        translations.put("Fog", "Nevoeiro");
-        translations.put("Windy", "Ventoso");
-        // Adicione mais traduções conforme necessário
+
         return translations;
     }
 }
